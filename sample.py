@@ -1,33 +1,60 @@
-import pandas as pd 
-from sqlalchemy import create_engine
+import pandas as pd
+import sqlalchemy
+import logging
 
-#connection to database
-DB_URI = "postgresql+psycopg2://postgres:1234@localhost:5432/excel_pipeline"
-engine = create_engine(DB_URI)
+# -------------------- Logging Setup --------------------
+logging.basicConfig(
+    filename='etl_log.log',
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
 
+# -------------------- Config --------------------
+EXCEL_FILE = 'sample_dirty_data.xlsx'  # Replace with your actual file name
+TABLE_NAME = 'employees'
+DATE_COLUMNS = ['date_joined']  # Update according to your sheet
+POSTGRES_URI = 'postgresql://postgres:1234@localhost:5432/excel_pipeline'
 
-#Connecting csv file
-file_path = "sample_dirty_data.xlsx"
-df = pd.read_excel(file_path, engine='openpyxl')
+# -------------------- Extract --------------------
+try:
+    logging.info("Step 1: Reading Excel file...")
+    df = pd.read_excel(EXCEL_FILE, engine='openpyxl')
+    logging.info(f"Excel file read successfully. Rows: {len(df)} Columns: {len(df.columns)}")
+except Exception as e:
+    logging.error(f"Error reading Excel file: {e}")
+    raise
 
+# -------------------- Transform --------------------
+try:
+    # Clean column names: lower case, no spaces
+    df.columns = [col.strip().lower().replace(' ', '_') for col in df.columns]
+    logging.info("Column names cleaned.")
 
+    # Convert and format date columns
+    for col in DATE_COLUMNS:
+        if col in df.columns:
+            df[col] = pd.to_datetime(df[col], errors='coerce')
+            df[col] = df[col].dt.strftime('%d-%m-%y')
+            logging.info(f"Formatted date column '{col}' to DD-MM-YY format.")
 
-# Clean the Data,Normalize column names
-df.columns = [col.strip().lower().replace(" ", "_") for col in df.columns]
-df.dropna(how="all", inplace=True)  # Drop completely empty rows
-df.drop_duplicates(inplace=True)    # Drop duplicate rows
+    # Example cleanup: drop rows with missing values in a key column
+    if 'name' in df.columns:
+        original_len = len(df)
+        df = df.dropna(subset=['name'])
+        logging.info(f"Dropped rows with empty 'name'. Original: {original_len}, Remaining: {len(df)}")
 
-# Step 4: Replace NaNs with 'NA'
-df.fillna("NA", inplace=True)
+except Exception as e:
+    logging.error(f"Error during data transformation: {e}")
+    raise
 
-#keeping all the date format same
-if 'joining_date' in df.columns:
-    df['joining_date'] = pd.to_datetime(df['joining_date'], errors='coerce')
+# -------------------- Load --------------------
+try:
+    logging.info("Step 3: Connecting to PostgreSQL...")
+    engine = sqlalchemy.create_engine(POSTGRES_URI)
+    df.to_sql(TABLE_NAME, engine, if_exists='replace', index=False)
+    logging.info(f"Data loaded into PostgreSQL table '{TABLE_NAME}' successfully.")
+except Exception as e:
+    logging.error(f"Error loading data into PostgreSQL: {e}")
+    raise
 
-# Insert into PostgreSQL
-table_name = "employees"
-
-df.to_sql(table_name, con=engine, if_exists='replace', index=False)
-
-
-print(f"✅ Successfully inserted {len(df)} rows into table '{table_name}'")
+logging.info("ETL process completed successfully.")

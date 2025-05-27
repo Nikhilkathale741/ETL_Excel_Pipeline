@@ -1,0 +1,44 @@
+2025-05-28 00:21:57,160 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:21:57,323 - ERROR - Error reading Excel file: [Errno 13] Permission denied: 'sample_dirty_data.xlsx'
+2025-05-28 00:22:41,694 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:22:41,866 - INFO - Excel file read successfully. Rows: 25 Columns: 5
+2025-05-28 00:22:41,866 - INFO - Column names cleaned.
+2025-05-28 00:22:41,868 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:22:41,871 - INFO - Dropped rows with empty 'name'. Original: 25, Remaining: 25
+2025-05-28 00:22:41,871 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:22:41,952 - ERROR - Error loading data into PostgreSQL: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "your_username"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-28 00:23:12,990 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:23:13,161 - INFO - Excel file read successfully. Rows: 25 Columns: 5
+2025-05-28 00:23:13,161 - INFO - Column names cleaned.
+2025-05-28 00:23:13,162 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:23:13,163 - INFO - Dropped rows with empty 'name'. Original: 25, Remaining: 25
+2025-05-28 00:23:13,163 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:23:13,238 - ERROR - Error loading data into PostgreSQL: (psycopg2.OperationalError) connection to server at "localhost" (::1), port 5432 failed: FATAL:  password authentication failed for user "postgres"
+
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-05-28 00:23:26,809 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:23:26,983 - INFO - Excel file read successfully. Rows: 25 Columns: 5
+2025-05-28 00:23:26,983 - INFO - Column names cleaned.
+2025-05-28 00:23:26,984 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:23:26,985 - INFO - Dropped rows with empty 'name'. Original: 25, Remaining: 25
+2025-05-28 00:23:26,985 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:23:27,126 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:23:27,127 - INFO - ETL process completed successfully.
+2025-05-28 00:24:34,176 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:24:34,355 - INFO - Excel file read successfully. Rows: 25 Columns: 5
+2025-05-28 00:24:34,356 - INFO - Column names cleaned.
+2025-05-28 00:24:34,356 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:24:34,357 - INFO - Dropped rows with empty 'name'. Original: 25, Remaining: 25
+2025-05-28 00:24:34,357 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:24:34,502 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:24:34,502 - INFO - ETL process completed successfully.
+2025-05-28 00:25:53,993 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:25:54,171 - INFO - Excel file read successfully. Rows: 26 Columns: 5
+2025-05-28 00:25:54,171 - INFO - Column names cleaned.
+2025-05-28 00:25:54,172 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:25:54,173 - INFO - Dropped rows with empty 'name'. Original: 26, Remaining: 26
+2025-05-28 00:25:54,173 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:25:54,422 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:25:54,422 - INFO - ETL process completed successfully.
