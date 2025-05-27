@@ -42,3 +42,48 @@
 2025-05-28 00:25:54,173 - INFO - Step 3: Connecting to PostgreSQL...
 2025-05-28 00:25:54,422 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
 2025-05-28 00:25:54,422 - INFO - ETL process completed successfully.
+2025-05-28 00:35:58,920 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:35:59,097 - INFO - Excel file read successfully. Rows: 27 Columns: 5
+2025-05-28 00:35:59,097 - INFO - Column names cleaned.
+2025-05-28 00:35:59,100 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:35:59,101 - INFO - Dropped rows with empty 'name'. Original: 27, Remaining: 27
+2025-05-28 00:35:59,101 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:35:59,239 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:35:59,239 - INFO - ETL process completed successfully.
+2025-05-28 00:40:31,754 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:40:31,927 - INFO - Excel file read successfully. Rows: 27 Columns: 5
+2025-05-28 00:40:31,928 - INFO - Column names cleaned.
+2025-05-28 00:40:31,929 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:40:31,930 - INFO - Dropped rows with empty 'name'. Original: 27, Remaining: 27
+2025-05-28 00:40:31,931 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:40:32,056 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:40:32,057 - INFO - ETL process completed successfully.
+2025-05-28 00:42:00,664 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:42:00,835 - INFO - Excel file read successfully. Rows: 28 Columns: 5
+2025-05-28 00:42:00,835 - INFO - Column names cleaned.
+2025-05-28 00:42:00,837 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:42:00,838 - INFO - Dropped rows with empty 'name'. Original: 28, Remaining: 28
+2025-05-28 00:42:00,838 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:42:00,970 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:42:00,970 - INFO - ETL process completed successfully.
+2025-05-28 00:47:54,595 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:47:54,767 - INFO - Excel file read successfully. Rows: 26 Columns: 5
+2025-05-28 00:47:54,767 - INFO - Step 2: Cleaning and transforming data...
+2025-05-28 00:47:54,848 - WARNING - Schema validation failed. Dropping invalid rows: 23
+2025-05-28 00:47:54,849 - ERROR - Error during data transformation: '[None] not found in axis'
+2025-05-28 00:48:53,872 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:48:54,054 - INFO - Excel file read successfully. Rows: 26 Columns: 5
+2025-05-28 00:48:54,055 - INFO - Column names cleaned.
+2025-05-28 00:48:54,057 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:48:54,058 - INFO - Dropped rows with empty 'name'. Original: 26, Remaining: 26
+2025-05-28 00:48:54,058 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:48:54,190 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:48:54,190 - INFO - ETL process completed successfully.
+2025-05-28 00:50:14,163 - INFO - Step 1: Reading Excel file...
+2025-05-28 00:50:14,336 - INFO - Excel file read successfully. Rows: 26 Columns: 5
+2025-05-28 00:50:14,336 - INFO - Column names cleaned.
+2025-05-28 00:50:14,338 - INFO - Formatted date column 'date_joined' to DD-MM-YY format.
+2025-05-28 00:50:14,339 - INFO - Dropped rows with empty 'name'. Original: 26, Remaining: 26
+2025-05-28 00:50:14,340 - INFO - Step 3: Connecting to PostgreSQL...
+2025-05-28 00:50:14,467 - INFO - Data loaded into PostgreSQL table 'employees' successfully.
+2025-05-28 00:50:14,467 - INFO - ETL process completed successfully.

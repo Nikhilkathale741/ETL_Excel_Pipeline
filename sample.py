@@ -2,6 +2,7 @@ import pandas as pd
 import sqlalchemy
 import logging
 
+
 # -------------------- Logging Setup --------------------
 logging.basicConfig(
     filename='etl_log.log',
@@ -14,6 +15,9 @@ EXCEL_FILE = 'sample_dirty_data.xlsx'  # Replace with your actual file name
 TABLE_NAME = 'employees'
 DATE_COLUMNS = ['date_joined']  # Update according to your sheet
 POSTGRES_URI = 'postgresql://postgres:1234@localhost:5432/excel_pipeline'
+
+
+
 
 # -------------------- Extract --------------------
 try:
